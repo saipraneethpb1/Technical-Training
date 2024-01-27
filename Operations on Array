@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+void print_array(const vector<int>& arr) {
+    for (int element : arr) {
+        cout << element << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    vector<int> my_array = {10, 20, 30, 40, 50};
+    int insert_index = 2;
+    int new_element = 90;
+    my_array.insert(my_array.begin() + insert_index, new_element);
+
+    cout << "Array after insertion: ";
+    print_array(my_array);
+
+    int delete_index = 1;
+    my_array.erase(my_array.begin() + delete_index);
+
+    cout << "Array after deletion: ";
+    print_array(my_array);
+
+    reverse(my_array.begin(), my_array.end());
+    cout << "Reversed array: ";
+    print_array(my_array);
+
+    return 0;
+}
