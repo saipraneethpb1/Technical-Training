@@ -1,0 +1,58 @@
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
+void display(stack<int> myStack) {
+    cout << "Stack elements: ";
+    while (!myStack.empty()) {
+        cout << myStack.top() << " ";
+        myStack.pop();
+    }
+    cout << endl;
+}
+
+int main() {
+    stack<int> myStack;
+    int choice, element;
+
+    do {
+        cout << "\n1. Push\n";
+        cout << "2. Pop\n";
+        cout << "3. Display\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "Enter element to push: ";
+                cin >> element;
+                myStack.push(element);
+                cout << element << " pushed into the stack.\n";
+                break;
+
+            case 2:
+                if (!myStack.empty()) {
+                    cout << myStack.top() << " popped from the stack.\n";
+                    myStack.pop();
+                } else {
+                    cout << "Stack is empty. Cannot pop.\n";
+                }
+                break;
+
+            case 3:
+                display(myStack);
+                break;
+
+            case 4:
+                cout << "Exiting the program.\n";
+                break;
+
+            default:
+                cout << "Invalid choice. Please enter a valid option.\n";
+        }
+    } while (choice != 4);
+
+    return 0;
+}
